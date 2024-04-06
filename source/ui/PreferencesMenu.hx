@@ -41,6 +41,7 @@ class PreferencesMenu extends ui.OptionsState.Page
 		createPrefItem('Ghost Tapping', 'ghost-tapping', true);
 		createPrefItem('Healthbar Colors', 'hpcolors', true);
 		createPrefItem('Vanilla UI', 'oldui', false);
+		createPrefItem('Winning Icons', 'winicons', true);
 
 		camFollow = new FlxObject(FlxG.width / 2, 0, 140, 70);
 		if (items != null)
@@ -81,6 +82,7 @@ class PreferencesMenu extends ui.OptionsState.Page
 		preferenceCheck('ghost-tapping', true);
 		preferenceCheck('hpcolors', true);
 		preferenceCheck('oldui', false);
+		preferenceCheck('winicons', true);
 		preferenceCheck('master-volume', 1);
 
 		#if muted

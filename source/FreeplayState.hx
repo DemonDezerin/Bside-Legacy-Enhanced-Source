@@ -13,6 +13,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import ui.PreferencesMenu;
 
 using StringTools;
 
@@ -59,7 +60,7 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...initSonglist.length)
 		{
-			songs.push(new SongMetadata(initSonglist[i], 1, 'gf'));
+			songs.push(new SongMetadata(initSonglist[i], 1, 'gf-menu'));
 		}
 
 		if (FlxG.sound.music != null)
@@ -84,7 +85,7 @@ class FreeplayState extends MusicBeatState
 			addWeek(['Cocoa', 'Eggnog', 'Winter-Horrorland'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
 
 		if (StoryMenuState.weekUnlocked[6] || isDebug)
-			addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai', 'spirit']);
+			addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai-angry', 'spirit']);
 
 		// LOAD MUSIC
 
@@ -288,9 +289,13 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
+			if (PreferencesMenu.getPref('winicons'))
+				iconArray[i].animation.curAnim.curFrame = 0;
 		}
 
 		iconArray[curSelected].alpha = 1;
+		if (PreferencesMenu.getPref('winicons'))
+			iconArray[curSelected].animation.curAnim.curFrame = 2;
 
 		for (item in grpSongs.members)
 		{
