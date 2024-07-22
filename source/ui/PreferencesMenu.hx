@@ -35,13 +35,15 @@ class PreferencesMenu extends ui.OptionsState.Page
 		createPrefItem('flashing menu', 'flashing-menu', true);
 		createPrefItem('Camera Zooming on Beat', 'camera-zoom', true);
 		createPrefItem('FPS Counter', 'fps-counter', true);
-		createPrefItem('Auto Pause', 'auto-pause', false);
 		createPrefItem('Note Splashes', 'splash', true);
 		createPrefItem('Reset Button', 'reset', true);
 		createPrefItem('Ghost Tapping', 'ghost-tapping', true);
 		createPrefItem('Healthbar Colors', 'hpcolors', true);
 		createPrefItem('Vanilla UI', 'oldui', false);
 		createPrefItem('Winning Icons', 'winicons', true);
+		#if discord_rpc
+		createPrefItem('Discord RPC', 'rpc', true);
+		#end
 
 		camFollow = new FlxObject(FlxG.width / 2, 0, 140, 70);
 		if (items != null)
@@ -76,13 +78,15 @@ class PreferencesMenu extends ui.OptionsState.Page
 		preferenceCheck('flashing-menu', true);
 		preferenceCheck('camera-zoom', true);
 		preferenceCheck('fps-counter', true);
-		preferenceCheck('auto-pause', false);
 		preferenceCheck('splash', true);
 		preferenceCheck('reset', true);
 		preferenceCheck('ghost-tapping', true);
 		preferenceCheck('hpcolors', true);
 		preferenceCheck('oldui', false);
 		preferenceCheck('winicons', true);
+		#if discord_rpc
+		preferenceCheck('rpc', true);
+		#end
 		preferenceCheck('master-volume', 1);
 
 		#if muted
@@ -92,8 +96,6 @@ class PreferencesMenu extends ui.OptionsState.Page
 
 		if (!getPref('fps-counter'))
 			FlxG.stage.removeChild(Main.fpsCounter);
-
-		FlxG.autoPause = getPref('auto-pause');
 	}
 
 	private function createPrefItem(prefName:String, prefString:String, prefValue:Dynamic):Void
@@ -149,8 +151,13 @@ class PreferencesMenu extends ui.OptionsState.Page
 					FlxG.stage.addChild(Main.fpsCounter);
 				else
 					FlxG.stage.removeChild(Main.fpsCounter);
-			case 'auto-pause':
-				FlxG.autoPause = getPref('auto-pause');
+			#if discord_rpc
+			case 'rpc':
+				if (getPref('rpc'))
+					Discord.DiscordClient.initialize();
+				else
+					Discord.DiscordClient.shutdown();
+			#end
 		}
 
 		if (prefName == 'fps-counter') {}

@@ -31,13 +31,13 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 
 	var coolColors:Array<Int> = [
-		0xff9271fd,
-		0xff9271fd,
-		0xff223344,
-		0xFF941653,
-		0xFFfc96d7,
-		0xFFa0d1ff,
-		0xffff78bf
+		0xFF6800a5,
+		0xFFFB97C2,
+		0xFFB2B2B2,
+		0xFF8978CC,
+		0xFFFB97C2,
+		0xFFFB97C2,
+		0xFFE2E2E0
 	];
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
