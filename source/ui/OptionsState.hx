@@ -21,7 +21,7 @@ class OptionsState extends MusicBeatState
 	override function create()
 	{
 		var menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		menuBG.color = 0xFFea71fd;
+		menuBG.color = 0xFF844ADC;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();

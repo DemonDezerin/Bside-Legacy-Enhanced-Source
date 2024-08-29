@@ -39,7 +39,7 @@ using StringTools;
 #if discord_rpc
 import Discord.DiscordClient;
 #end
-#if desktop
+#if sys
 import sys.FileSystem;
 import sys.io.File;
 import sys.thread.Thread;

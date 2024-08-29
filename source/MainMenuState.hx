@@ -72,7 +72,7 @@ class MainMenuState extends MusicBeatState
 		magenta.y = bg.y;
 		magenta.visible = false;
 		magenta.antialiasing = true;
-		magenta.color = 0xFFfd719b;
+		magenta.color = 0xFFFF1493;
 		if (PreferencesMenu.preferences.get('flashing-menu'))
 			add(magenta);
 		// magenta.scrollFactor.set();
@@ -108,7 +108,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.06);
 		// FlxG.camera.setScrollBounds(bg.x, bg.x + bg.width, bg.y, bg.y + bg.height * 1.2);
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 40, 0, 'Bsides Classic Enhanced Version: 1.1\nFriday Night Funkin Version: ${Application.current.meta.get('version')}', 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 40, 0, 'Bsides Legacy Enhanced Version: 1.4\nFriday Night Funkin Version: ${Application.current.meta.get('version')}', 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
